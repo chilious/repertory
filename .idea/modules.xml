@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/persistence/persistence.iml" filepath="$PROJECT_DIR$/.idea/modules/persistence/persistence.iml" group="persistence" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/persistence/persistence_main.iml" filepath="$PROJECT_DIR$/.idea/modules/persistence/persistence_main.iml" group="persistence" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/persistence/persistence_test.iml" filepath="$PROJECT_DIR$/.idea/modules/persistence/persistence_test.iml" group="persistence" />
+      <module fileurl="file://$PROJECT_DIR$/repertory.iml" filepath="$PROJECT_DIR$/repertory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repertory_main.iml" filepath="$PROJECT_DIR$/.idea/modules/repertory_main.iml" group="repertory" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/repertory_test.iml" filepath="$PROJECT_DIR$/.idea/modules/repertory_test.iml" group="repertory" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web.iml" group="web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_main.iml" group="web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_test.iml" group="web" />
+    </modules>
+  </component>
+</project>

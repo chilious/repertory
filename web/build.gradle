@@ -1,0 +1,21 @@
+group 'com.night'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.springframework:spring-web:4.3.10.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.3.10.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.8.10'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.10'
+    compile 'jstl:jstl:1.2'
+    compile project(':persistence')
+}

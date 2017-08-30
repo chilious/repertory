@@ -1,0 +1,4 @@
+rootProject.name = 'repertory'
+include 'persistence'
+include 'web'
+

@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="116.62.201.22">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="dudu.repertory">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="cms"/>
+    <schema id="4" parent="1" name="dudu"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="yd_coffee_v2"/>
+    <table id="9" parent="2" name="admin"/>
+    <table id="10" parent="2" name="checkpoint"/>
+    <table id="11" parent="2" name="inventory"/>
+    <table id="12" parent="2" name="inventory_machine"/>
+    <table id="13" parent="2" name="machine"/>
+    <table id="14" parent="2" name="material"/>
+    <table id="15" parent="2" name="menu"/>
+    <table id="16" parent="2" name="procurement"/>
+    <table id="17" parent="2" name="production"/>
+    <table id="18" parent="2" name="ref_checkpoint_material"/>
+    <table id="19" parent="2" name="ref_procurement_production"/>
+    <table id="20" parent="2" name="ref_role_menu"/>
+    <table id="21" parent="2" name="ref_sotre_material"/>
+    <table id="22" parent="2" name="ref_store_admin"/>
+    <table id="23" parent="2" name="ref_store_machineno"/>
+    <table id="24" parent="2" name="role"/>
+    <table id="25" parent="2" name="stock"/>
+    <table id="26" parent="2" name="store"/>
+    <table id="27" parent="2" name="suppliers"/>
+    <column id="28" parent="9" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="9" name="name">
+      <Position>2</Position>
+      <Comment>仓库管理员姓名</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="30" parent="9" name="phone">
+      <Position>3</Position>
+      <Comment>管理员手机号码</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="31" parent="9" name="password">
+      <Position>4</Position>
+      <Comment>账号登录密码</Comment>
+      <DataType>varchar(1024)|0</DataType>
+    </column>
+    <column id="32" parent="9" name="login_time">
+      <Position>5</Position>
+      <Comment>登录时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="33" parent="9" name="role_id">
+      <Position>6</Position>
+      <Comment>所属角色ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="34" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="10" name="id">
+      <Position>1</Position>
+      <Comment>盘点表ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="10" name="time">
+      <Position>3</Position>
+      <Comment>盘点时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="37" parent="10" name="store_no">
+      <Position>2</Position>
+      <Comment>仓库编号</Comment>
+      <DataType>varchar(51)|0</DataType>
+    </column>
+    <key id="38" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="11" name="id">
+      <Position>1</Position>
+      <Comment>(当前仓库物料存量)主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="11" name="material_id">
+      <Position>3</Position>
+      <Comment>物料ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="41" parent="11" name="pack_number">
+      <Position>4</Position>
+      <Comment>包装量</Comment>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="42" parent="11" name="scatter">
+      <Position>5</Position>
+      <Comment>零散量</Comment>
+      <DataType>double|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="43" parent="11" name="store_no">
+      <Position>2</Position>
+      <Comment>仓库编号</Comment>
+      <DataType>varchar(51)|0</DataType>
+    </column>
+    <key id="44" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="12" name="id">
+      <Position>1</Position>
+      <Comment>当前机器物料余量表</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="12" name="machine_no">
+      <Position>2</Position>
+      <Comment>机器号</Comment>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="47" parent="12" name="material_id">
+      <Position>3</Position>
+      <Comment>物料ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="48" parent="12" name="total_number">
+      <Position>4</Position>
+      <Comment>物料余量</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="49" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="13" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="13" name="no">
+      <Position>2</Position>
+      <Comment>机器号</Comment>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="52" parent="13" name="station_id">
+      <Position>3</Position>
+      <Comment>站点ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="53" parent="13" name="station_name">
+      <Position>4</Position>
+      <Comment>站点名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="54" parent="13" name="operator_id">
+      <Position>5</Position>
+      <Comment>运营商ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="55" parent="13" name="operator_name">
+      <Position>6</Position>
+      <Comment>运营商名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="56" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="14" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="14" name="name">
+      <Position>2</Position>
+      <Comment>物料名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="59" parent="14" name="unit">
+      <Position>3</Position>
+      <Comment>计量单位</Comment>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="60" parent="14" name="warn_line">
+      <Position>4</Position>
+      <Comment>预警值</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="61" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="62" parent="15" name="id">
+      <Position>1</Position>
+      <Comment>菜单ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="63" parent="15" name="name">
+      <Position>3</Position>
+      <Comment>菜单名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="64" parent="15" name="icon">
+      <Position>5</Position>
+      <Comment>菜单iconfont</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="65" parent="15" name="url">
+      <Position>6</Position>
+      <Comment>菜单链接</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="66" parent="15" name="no">
+      <Position>2</Position>
+      <Comment>菜单编号</Comment>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="67" parent="15" name="en_name">
+      <Position>4</Position>
+      <Comment>菜单英文名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="68" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>采购单主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="16" name="store_id">
+      <Position>2</Position>
+      <Comment>仓库ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="71" parent="16" name="proposer_id">
+      <Position>3</Position>
+      <Comment>采购人ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="72" parent="16" name="proposer_name">
+      <Position>4</Position>
+      <Comment>采购人姓名</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="73" parent="16" name="supply_time">
+      <Position>5</Position>
+      <Comment>申请时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="74" parent="16" name="audit_time">
+      <Position>6</Position>
+      <Comment>审核时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="75" parent="16" name="auditor_id">
+      <Position>7</Position>
+      <Comment>审核人ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="76" parent="16" name="auditor_name">
+      <Position>8</Position>
+      <Comment>审核人姓名</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="77" parent="16" name="status">
+      <Position>9</Position>
+      <Comment>状态 0-审核中 1-已通过 2-已驳回 3-已确认 4-已撤回 5-已作废 6-发货中 7-已完成</Comment>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="78" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="79" parent="17" name="id">
+      <Position>1</Position>
+      <Comment>产品ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="80" parent="17" name="name">
+      <Position>2</Position>
+      <Comment>产品名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="81" parent="17" name="suppliers_id">
+      <Position>3</Position>
+      <Comment>所属供应商ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="82" parent="17" name="material_id">
+      <Position>4</Position>
+      <Comment>所属物料ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="83" parent="17" name="pack_unit">
+      <Position>5</Position>
+      <Comment>包装单位</Comment>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="84" parent="17" name="pack_number">
+      <Position>6</Position>
+      <Comment>每个包装的量</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="85" parent="17" name="status">
+      <Position>7</Position>
+      <Comment>产品状态0-正常 1-弃用</Comment>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <key id="86" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="87" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>盘点表-物料表关系ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="88" parent="18" name="checkpoint_id">
+      <Position>2</Position>
+      <Comment>盘点ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="89" parent="18" name="material_id">
+      <Position>3</Position>
+      <Comment>物料ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="90" parent="18" name="pack_number">
+      <Position>4</Position>
+      <Comment>包装量</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="91" parent="18" name="scatter">
+      <Position>5</Position>
+      <Comment>零散量</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="92" parent="18" name="difference">
+      <Position>6</Position>
+      <Comment>与理论值之间的差值,以最小单位来计</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="93" parent="18" name="money">
+      <Position>7</Position>
+      <Comment>损耗金钱</Comment>
+      <DataType>decimal(13,2)|0</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+    </column>
+    <key id="94" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="95" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>采购单-产品关系ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="96" parent="19" name="procurement_id">
+      <Position>2</Position>
+      <Comment>采购单ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="97" parent="19" name="production_id">
+      <Position>3</Position>
+      <Comment>产品ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="98" parent="19" name="pack_number">
+      <Position>4</Position>
+      <Comment>采购的包装量</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="99" parent="19" name="total_number">
+      <Position>5</Position>
+      <Comment>总计量</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="100" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="101" parent="20" name="id">
+      <Position>1</Position>
+      <Comment>角色菜单表ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="102" parent="20" name="role_id">
+      <Position>2</Position>
+      <Comment>角色ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="103" parent="20" name="menu_no">
+      <Position>3</Position>
+      <Comment>菜单编号</Comment>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <key id="104" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="21" name="id">
+      <Position>1</Position>
+      <Comment>仓库累计损耗物料量表ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="106" parent="21" name="store_id">
+      <Position>2</Position>
+      <Comment>仓库ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="107" parent="21" name="material_id">
+      <Position>3</Position>
+      <Comment>物料ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="108" parent="21" name="number">
+      <Position>4</Position>
+      <Comment>物料量</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="109" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="110" parent="22" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="111" parent="22" name="store_id">
+      <Position>2</Position>
+      <Comment>仓库ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="112" parent="22" name="admin_id">
+      <Position>3</Position>
+      <Comment>管理员ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="113" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="114" parent="23" name="id">
+      <Position>1</Position>
+      <Comment>仓库-机器号关系ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="115" parent="23" name="store_id">
+      <Position>2</Position>
+      <Comment>仓库ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="116" parent="23" name="machine_no">
+      <Position>3</Position>
+      <Comment>机器号</Comment>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <key id="117" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="118" parent="24" name="id">
+      <Position>1</Position>
+      <Comment>角色ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="119" parent="24" name="name">
+      <Position>2</Position>
+      <Comment>角色名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="120" parent="24" name="description">
+      <Position>3</Position>
+      <Comment>角色描述</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="121" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="122" parent="25" name="id">
+      <Position>1</Position>
+      <Comment>(收货记录)主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="123" parent="25" name="store_id">
+      <Position>2</Position>
+      <Comment>本仓库ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="124" parent="25" name="source_type">
+      <Position>3</Position>
+      <Comment>来源(购买/传递)</Comment>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="125" parent="25" name="source_stroe_id">
+      <Position>4</Position>
+      <Comment>发货仓库的ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="126" parent="25" name="product_spending">
+      <Position>5</Position>
+      <Comment>所花的产品金额</Comment>
+      <DataType>decimal(13,2)|0</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+    </column>
+    <column id="127" parent="25" name="express_spending">
+      <Position>6</Position>
+      <Comment>所花的快递金额</Comment>
+      <DataType>decimal(10,2)|0</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+    </column>
+    <column id="128" parent="25" name="express_payer">
+      <Position>7</Position>
+      <Comment>付款方 本仓库/发货方仓库</Comment>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="129" parent="25" name="express_company">
+      <Position>8</Position>
+      <Comment>快递公司</Comment>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="130" parent="25" name="express_number">
+      <Position>9</Position>
+      <Comment>快递单号</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="131" parent="25" name="time">
+      <Position>10</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="132" parent="25" name="procurement_id">
+      <Position>11</Position>
+      <Comment>采购单ID</Comment>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="133" parent="25" name="status">
+      <Position>12</Position>
+      <Comment>状态 0-未发货 1-已发货 2-货损 3-已退回 4-确认已收货</Comment>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <key id="134" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="135" parent="26" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="136" parent="26" name="name">
+      <Position>3</Position>
+      <Comment>仓库名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="137" parent="26" name="address">
+      <Position>4</Position>
+      <Comment>仓库地址</Comment>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="138" parent="26" name="wastage_money">
+      <Position>5</Position>
+      <Comment>当前累计损耗金钱</Comment>
+      <DataType>decimal(11,2)|0</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+    </column>
+    <column id="139" parent="26" name="express_money">
+      <Position>6</Position>
+      <Comment>当前累计使用的快递费</Comment>
+      <DataType>decimal(13,2)|0</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+    </column>
+    <column id="140" parent="26" name="material_money">
+      <Position>7</Position>
+      <Comment>当前累计购买物料使用的费用</Comment>
+      <DataType>decimal(13,2)|0</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+    </column>
+    <column id="141" parent="26" name="no">
+      <Position>2</Position>
+      <Comment>仓库编号</Comment>
+      <DataType>varchar(51)|0</DataType>
+    </column>
+    <key id="142" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="143" parent="27" name="id">
+      <Position>1</Position>
+      <Comment>供应商ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="144" parent="27" name="name">
+      <Position>2</Position>
+      <Comment>供应商名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="145" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
