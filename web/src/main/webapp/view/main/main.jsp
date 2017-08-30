@@ -28,19 +28,12 @@
                 </div>
             </c:forEach>
 
-            <%--<div class="nav">--%>
-                <%--<a href="#" target="_self">首页<br/><span>HOME</span></a>--%>
-                <%--<a href="#">个人中心</a>--%>
-                <%--<a href="#">商城</a>--%>
-                <%--<a href="#">玩家工坊</a>--%>
-            <%--</div>--%>
-
             <div class="nav">
                 <a href="#">我<br/><span>ME</span></a>
                 <a href="#">安全管理</a>
                 <a href="#">退出登录</a>
             </div>
-            <span>上次登录：${storeAdmin.loginTime}</span>
+            <div style="float:left;color:white;">上次登录：${storeAdmin.loginTime}</div>
         </div>
     </header>
     <div id="mid">

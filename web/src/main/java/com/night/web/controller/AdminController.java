@@ -81,12 +81,12 @@ public class AdminController {
     }
 
     /**
-     * 跳转到导航页
+     * 跳转到我的仓库
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/myStore")
     public ModelAndView gotoMyStore()throws Exception{
-        return new ModelAndView("/mystore/mystore");
+        return new ModelAndView("mystore/mystore");
     }
 }
