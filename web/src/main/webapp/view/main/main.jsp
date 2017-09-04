@@ -12,7 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <title>嘟嘟仓库</title>
-
+    <link rel="icon" type="image/x-icon" href="/images/common/ico.ico">
+    <link rel="stylesheet" type="text/css" href="/plugin/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/plugin/common/common.css">
     <link rel="stylesheet" type="text/css" href="/view/main/main.css">
 </head>
 <body>
@@ -21,29 +23,35 @@
             <img id="companylogo" src="/images/main.header/companylogo.png" />
             <c:forEach items="${menuList}" var ="menu" varStatus="status">
                 <div class="nav">
-                    <a href="${menu.menuEntity.url}">${menu.menuEntity.name}<br/><span>${menu.menuEntity.enName}</span></a>
+                    <a href="${menu.menuEntity.url}" target="bodyIframe">${menu.menuEntity.name}<br/><span>${menu.menuEntity.enName}</span></a>
                     <c:forEach items="${menu.subMenuList}" var="m" varStatus="s">
-                        <a href="${m.menuEntity.url}">${m.menuEntity.name}</a>
+                        <a href="${m.menuEntity.url}" target="bodyIframe">${m.menuEntity.name}</a>
                     </c:forEach>
                 </div>
             </c:forEach>
 
             <div class="nav">
-                <a href="#">我<br/><span>ME</span></a>
-                <a href="#">安全管理</a>
-                <a href="#">退出登录</a>
+                <a href="javascript:;">我<br/><span>ME</span></a>
+                <a href="javascript:update_password();">修改密码</a>
+                <a href="/admin/exit">退出登录</a>
             </div>
-            <div style="float:left;color:white;">上次登录：${storeAdmin.loginTime}</div>
+            <div id="lastLoginTime" class="verticalCenter">上次登录：${storeAdmin.loginTime}</div>
         </div>
     </header>
     <div id="mid">
-        <iframe id="bodyIframe" name="bodyIframe" src="/admin/mystore"
+        <span class="layui-breadcrumb">
+          <a href="">首页</a>
+          <a href="">我的仓库</a>
+        </span>
+        <iframe id="bodyIframe" name="bodyIframe" src=""
                 scrolling="no" frameborder="no" border="0" marginwidth="0" marginheight="0">
         </iframe>
     </div>
 </body>
 
 <script type="text/javascript" src="/plugin/jquery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/plugin/layui/layui.js"></script>
+<script type="text/javascript" src="/plugin/layer/layer.js"></script>
 <script type="text/javascript" src="/plugin/common/common.js"></script>
 <script type="text/javascript" src="/plugin/common/error.js"></script>
 <script type="text/javascript" src="/view/main/main.js"></script>

@@ -3,10 +3,13 @@ package com.night.web.service.admin;
 import com.night.persistence.dao.admin.IAdminDao;
 import com.night.persistence.entity.AdminEntity;
 import com.night.system.utils.encrypt.EncryptUtil;
+import com.night.system.utils.other.StringUtil;
 import com.night.web.Interaction.login.LoginForm;
 import com.night.web.exception.ClientException;
+import com.night.web.form.UpdatePasswordForm;
 import com.night.web.service.base.BaseService;
 import com.night.web.vo.Admin;
+import com.sun.deploy.util.SessionState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
@@ -41,5 +44,28 @@ public class AdminService extends BaseService implements IAdminService{
         adminEntity.setLoginTime(new Timestamp(new Date().getTime()));
         dao.save(adminEntity);
         return admin;
+    }
+
+    /**
+     * 更新用户密码
+     * @param admin
+     * @param form
+     * @throws Exception
+     */
+    @Override
+    public void update(Admin admin, UpdatePasswordForm form) throws Exception {
+        String password = EncryptUtil.decrypt(admin.getAdminEntity().getPassword());
+        if(!password.equals(form.getOldPassword())){
+            throw new ClientException("old_password_error");
+        }
+        if(StringUtil.isNone(form.getNewPassword())){
+            throw new ClientException("new_password_none");
+        }
+        if(!form.getNewPassword().equals(form.getRenewPassword())){
+            throw new ClientException("renew_password_diffrent");
+        }
+        AdminEntity ae = admin.getAdminEntity();
+        ae.setPassword(EncryptUtil.encrypt(form.getNewPassword()));
+        dao.save(ae);
     }
 }

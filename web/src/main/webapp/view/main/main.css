@@ -1,12 +1,5 @@
 @charset "UTF-8";
-html{
-    padding:0;
-}
-body{
-    width:100%;
-    height:100%;
-    margin:0;
-}
+
 header{
     width:100%;
     height:80px;
@@ -31,7 +24,7 @@ header>div{
 .nav{
     font-size:15px;
     font-family:microsoft yahei;
-    color:#979797;
+    color:#C9C9C9;
     text-align:center;
     float:left;
     height:100%;
@@ -39,44 +32,58 @@ header>div{
     position:relative;
     z-index:99999;
 }
+#lastLoginTime{
+    float:left;
+    color:#C9C9C9;
+    height:80px;
+}
 .nav:hover{
-    height:300px;
     background-position:center;
     background-size:100% 100%;
     background-repeat:no-repeat;
     background-origin:border-box;
     background-clip:border-box;
     background-attachment:scroll;
-    background-image:url(/images/main.header/subnav.bg.png)
+    background-image:url(/images/main.header/subnav.bg.png);
 }
 .nav span{
     font-size:13px;
 }
-.nav a:nth-child(1){
-    padding:23.5px 13px;
-}
 .nav a{
     display:block;
-    padding:6px 13px;
+    padding:3px 13px;
     cursor:pointer;
-    text-decoration: none;
-    color:#979797;
+    text-decoration:none;
+    color:#C9C9C9;
 }
-#customer_default_avatar{
-    float:left;
-    height:40px;
-    width:40px;
-    margin:20px auto 20px 30px;
+.nav a:nth-child(1){
+    padding:0 13px;
+    height:80px;
+    display:-webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display:-moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-pack: center;
+    -moz-box-align: center;
 }
 #mid{
     margin:0;
     width:100%;
-    height:70%;
+    height:800px;
 }
+
 #bodyIframe{
     border:none;
     width:100%;
-    height:100%;
+    border:yellow solid 1px;
     align:top;
     margin:0;
+}
+
+.layui-breadcrumb{
+    color:black;
+    visibility: visible;
 }

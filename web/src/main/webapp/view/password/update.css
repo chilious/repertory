@@ -1,0 +1,24 @@
+@charset "UTF-8";
+input{
+    outline:none;
+    border:none;
+}
+p{
+    width:100%;
+    height:25%;
+    margin:0;
+}
+input{
+    height:70%;
+    font-size:17px;
+    letter-spacing:3px;
+}
+span{
+    margin-left:30px;
+    width:130px;
+}
+#submit{
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    cursor:pointer;
+}

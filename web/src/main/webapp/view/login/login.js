@@ -58,10 +58,6 @@ function login(){
                 var nextUrl = $('#nextUrl').val();
                 window.location.replace('/admin/main');
             }else{
-                // layer.alert(ERROR[json.msg], {
-                //     icon: 0,
-                //     skin: 'layer-ext-moon'
-                // });
                 layer.msg(ERROR[json.msg]);
             }
         });

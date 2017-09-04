@@ -3,6 +3,7 @@ package com.night.web.controller;
 import com.night.web.Interaction.ClientJson;
 import com.night.web.Interaction.login.LoginForm;
 import com.night.web.exception.ClientException;
+import com.night.web.form.UpdatePasswordForm;
 import com.night.web.service.admin.IAdminService;
 import com.night.web.service.menu.IMenuService;
 import com.night.web.vo.Admin;
@@ -67,6 +68,17 @@ public class AdminController {
     }
 
     /**
+     * 退出登录
+     * @return
+     */
+    @RequestMapping(value = "/exit" , method = RequestMethod.GET)
+    public ModelAndView exit()throws Exception{
+        req.getSession().removeAttribute("storeAdmin");
+        ModelAndView mav = new ModelAndView("/login/login");
+        return mav;
+    }
+
+    /**
      * 跳转到主页
      * @return
      * @throws Exception
@@ -81,12 +93,35 @@ public class AdminController {
     }
 
     /**
-     * 跳转到我的仓库
+     * 跳转到修改密码页面
+     * @return
+     */
+    @RequestMapping(value = "/password" , method = RequestMethod.GET)
+    public ModelAndView gotoUpdatePassword()throws Exception{
+        return new ModelAndView("password/update");
+    }
+
+    /**
+     * 更新密码
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/myStore")
-    public ModelAndView gotoMyStore()throws Exception{
-        return new ModelAndView("mystore/mystore");
+    @RequestMapping(value = "/password" , method = RequestMethod.PUT)
+    public ClientJson updatePassword(UpdatePasswordForm form)throws Exception{
+        ClientJson json = new ClientJson();
+        try{
+            Admin admin = (Admin) req.getSession().getAttribute("storeAdmin");
+            service.update(admin,form);
+        }catch(Exception e){
+            json.setSuccess(false);
+            if(e instanceof ClientException){
+                json.setErrorMsg(e.getMessage());
+            }else{
+                e.printStackTrace();
+                json.setErrorMsg("common_ajax_error");
+            }
+        }finally{
+            return json;
+        }
     }
 }
