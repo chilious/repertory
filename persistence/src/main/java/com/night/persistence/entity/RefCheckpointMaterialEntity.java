@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Administrator on 2017/9/11.
  */
 @Entity
 @Table(name = "ref_checkpoint_material", schema = "dudu.repertory", catalog = "")

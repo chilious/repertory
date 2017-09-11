@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Chilious on 2017/9/10.
  */
 @Entity
 @Table(name = "procurement", schema = "dudu.repertory", catalog = "")
@@ -12,12 +12,12 @@ public class ProcurementEntity {
     private int id;
     private Integer storeId;
     private Integer proposerId;
-    private String proposerName;
     private Timestamp supplyTime;
     private Timestamp auditTime;
     private Integer auditorId;
-    private String auditorName;
     private Byte status;
+    private String comment;
+    private String response;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -47,16 +47,6 @@ public class ProcurementEntity {
 
     public void setProposerId(Integer proposerId) {
         this.proposerId = proposerId;
-    }
-
-    @Basic
-    @Column(name = "proposer_name", nullable = true, length = 100)
-    public String getProposerName() {
-        return proposerName;
-    }
-
-    public void setProposerName(String proposerName) {
-        this.proposerName = proposerName;
     }
 
     @Basic
@@ -90,16 +80,6 @@ public class ProcurementEntity {
     }
 
     @Basic
-    @Column(name = "auditor_name", nullable = true, length = 100)
-    public String getAuditorName() {
-        return auditorName;
-    }
-
-    public void setAuditorName(String auditorName) {
-        this.auditorName = auditorName;
-    }
-
-    @Basic
     @Column(name = "status", nullable = true)
     public Byte getStatus() {
         return status;
@@ -107,6 +87,26 @@ public class ProcurementEntity {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    @Basic
+    @Column(name = "comment", nullable = true, length = 500)
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    @Basic
+    @Column(name = "response", nullable = true, length = 500)
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
     }
 
     @Override
@@ -119,12 +119,12 @@ public class ProcurementEntity {
         if (id != that.id) return false;
         if (storeId != null ? !storeId.equals(that.storeId) : that.storeId != null) return false;
         if (proposerId != null ? !proposerId.equals(that.proposerId) : that.proposerId != null) return false;
-        if (proposerName != null ? !proposerName.equals(that.proposerName) : that.proposerName != null) return false;
         if (supplyTime != null ? !supplyTime.equals(that.supplyTime) : that.supplyTime != null) return false;
         if (auditTime != null ? !auditTime.equals(that.auditTime) : that.auditTime != null) return false;
         if (auditorId != null ? !auditorId.equals(that.auditorId) : that.auditorId != null) return false;
-        if (auditorName != null ? !auditorName.equals(that.auditorName) : that.auditorName != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
+        if (response != null ? !response.equals(that.response) : that.response != null) return false;
 
         return true;
     }
@@ -134,12 +134,12 @@ public class ProcurementEntity {
         int result = id;
         result = 31 * result + (storeId != null ? storeId.hashCode() : 0);
         result = 31 * result + (proposerId != null ? proposerId.hashCode() : 0);
-        result = 31 * result + (proposerName != null ? proposerName.hashCode() : 0);
         result = 31 * result + (supplyTime != null ? supplyTime.hashCode() : 0);
         result = 31 * result + (auditTime != null ? auditTime.hashCode() : 0);
         result = 31 * result + (auditorId != null ? auditorId.hashCode() : 0);
-        result = 31 * result + (auditorName != null ? auditorName.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (comment != null ? comment.hashCode() : 0);
+        result = 31 * result + (response != null ? response.hashCode() : 0);
         return result;
     }
 }

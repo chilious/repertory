@@ -58,7 +58,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-<!--禁止访问JSP-->
+    <!--禁止访问JSP-->
     <security-constraint>
         <display-name>过滤掉对JSP文件的直接访问</display-name>
         <web-resource-collection>

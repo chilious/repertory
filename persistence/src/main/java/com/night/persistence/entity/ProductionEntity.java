@@ -1,9 +1,10 @@
 package com.night.persistence.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Chilious on 2017/9/10.
  */
 @Entity
 @Table(name = "production", schema = "dudu.repertory", catalog = "")
@@ -15,6 +16,10 @@ public class ProductionEntity {
     private String packUnit;
     private Double packNumber;
     private Byte status;
+    private Timestamp createTime;
+    private Integer createrId;
+    private Timestamp updateTime;
+    private Integer updaterId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -86,6 +91,46 @@ public class ProductionEntity {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "create_time", nullable = true)
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "creater_id", nullable = true)
+    public Integer getCreaterId() {
+        return createrId;
+    }
+
+    public void setCreaterId(Integer createrId) {
+        this.createrId = createrId;
+    }
+
+    @Basic
+    @Column(name = "update_time", nullable = true)
+    public Timestamp getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Timestamp updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Basic
+    @Column(name = "updater_id", nullable = true)
+    public Integer getUpdaterId() {
+        return updaterId;
+    }
+
+    public void setUpdaterId(Integer updaterId) {
+        this.updaterId = updaterId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,6 +145,10 @@ public class ProductionEntity {
         if (packUnit != null ? !packUnit.equals(that.packUnit) : that.packUnit != null) return false;
         if (packNumber != null ? !packNumber.equals(that.packNumber) : that.packNumber != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (createrId != null ? !createrId.equals(that.createrId) : that.createrId != null) return false;
+        if (updateTime != null ? !updateTime.equals(that.updateTime) : that.updateTime != null) return false;
+        if (updaterId != null ? !updaterId.equals(that.updaterId) : that.updaterId != null) return false;
 
         return true;
     }
@@ -113,6 +162,10 @@ public class ProductionEntity {
         result = 31 * result + (packUnit != null ? packUnit.hashCode() : 0);
         result = 31 * result + (packNumber != null ? packNumber.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (createrId != null ? createrId.hashCode() : 0);
+        result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
+        result = 31 * result + (updaterId != null ? updaterId.hashCode() : 0);
         return result;
     }
 }

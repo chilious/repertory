@@ -10,12 +10,16 @@ p{
 }
 input{
     height:70%;
+    width:100%;
     font-size:17px;
     letter-spacing:3px;
+    padding-left:10px;
 }
 span{
-    margin-left:30px;
-    width:130px;
+    padding-left:30px;
+    display:block;
+    width:6rem;
+    border-right:black solid 1px;
 }
 #submit{
     -webkit-box-pack: center;

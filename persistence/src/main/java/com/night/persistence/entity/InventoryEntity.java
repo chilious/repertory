@@ -3,16 +3,15 @@ package com.night.persistence.entity;
 import javax.persistence.*;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Administrator on 2017/9/11.
  */
 @Entity
 @Table(name = "inventory", schema = "dudu.repertory", catalog = "")
 public class InventoryEntity {
     private int id;
     private Integer materialId;
-    private Integer packNumber;
-    private Double scatter;
-    private String storeNo;
+    private Integer storeId;
+    private Double number;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -35,33 +34,23 @@ public class InventoryEntity {
     }
 
     @Basic
-    @Column(name = "pack_number", nullable = true)
-    public Integer getPackNumber() {
-        return packNumber;
+    @Column(name = "store_id", nullable = true)
+    public Integer getStoreId() {
+        return storeId;
     }
 
-    public void setPackNumber(Integer packNumber) {
-        this.packNumber = packNumber;
-    }
-
-    @Basic
-    @Column(name = "scatter", nullable = true, precision = 0)
-    public Double getScatter() {
-        return scatter;
-    }
-
-    public void setScatter(Double scatter) {
-        this.scatter = scatter;
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
     }
 
     @Basic
-    @Column(name = "store_no", nullable = true, length = 51)
-    public String getStoreNo() {
-        return storeNo;
+    @Column(name = "number", nullable = true, precision = 0)
+    public Double getNumber() {
+        return number;
     }
 
-    public void setStoreNo(String storeNo) {
-        this.storeNo = storeNo;
+    public void setNumber(Double number) {
+        this.number = number;
     }
 
     @Override
@@ -73,9 +62,8 @@ public class InventoryEntity {
 
         if (id != that.id) return false;
         if (materialId != null ? !materialId.equals(that.materialId) : that.materialId != null) return false;
-        if (packNumber != null ? !packNumber.equals(that.packNumber) : that.packNumber != null) return false;
-        if (scatter != null ? !scatter.equals(that.scatter) : that.scatter != null) return false;
-        if (storeNo != null ? !storeNo.equals(that.storeNo) : that.storeNo != null) return false;
+        if (storeId != null ? !storeId.equals(that.storeId) : that.storeId != null) return false;
+        if (number != null ? !number.equals(that.number) : that.number != null) return false;
 
         return true;
     }
@@ -84,9 +72,8 @@ public class InventoryEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (materialId != null ? materialId.hashCode() : 0);
-        result = 31 * result + (packNumber != null ? packNumber.hashCode() : 0);
-        result = 31 * result + (scatter != null ? scatter.hashCode() : 0);
-        result = 31 * result + (storeNo != null ? storeNo.hashCode() : 0);
+        result = 31 * result + (storeId != null ? storeId.hashCode() : 0);
+        result = 31 * result + (number != null ? number.hashCode() : 0);
         return result;
     }
 }

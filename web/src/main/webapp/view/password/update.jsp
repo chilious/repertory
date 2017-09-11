@@ -19,9 +19,9 @@
     <title></title>
 </head>
 <body>
-    <p class="verticalCenter"><span>原密码：</span><input id="old_password" type="password" maxlength="50"/></p>
-    <p class="verticalCenter"><span>新密码：</span><input id="new_password" type="password" maxlength="50"/></p>
-    <p class="verticalCenter"><span>确认新密码：</span><input id="renew_password" type="password" maxlength="50"/></p>
+    <p class="verticalCenter"><span>原密码</span><input id="old_password" type="password" maxlength="50"/></p>
+    <p class="verticalCenter"><span>新密码</span><input id="new_password" type="password" maxlength="50"/></p>
+    <p class="verticalCenter"><span>确认新密码</span><input id="renew_password" type="password" maxlength="50"/></p>
     <p class="verticalCenter" id="submit">提交</p>
 </body>
 

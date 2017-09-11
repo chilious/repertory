@@ -11,13 +11,6 @@ $.ajaxSetup({
     }
 });
 /**
- * 阻止网页元素被选中
- * @returns {boolean}
- */
-document.body.onselectstart = function(){
-    return false;
-};
-/**
  * 屏蔽鼠标右键
  */
 document.oncontextmenu = function(){

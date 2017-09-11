@@ -1,6 +1,7 @@
 var ERROR = {
     phone_not_exist : '该手机号码不存在！',
     password_error : '密码错误！',
+    acount_forbidden : '您的账号已被禁用！',
     old_password_none : '旧密码不能为空！',
     old_password_error : '旧密码错误！',
     new_password_none : '新密码不能为空！',

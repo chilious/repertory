@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <title>嘟嘟仓库</title>
     <link rel="icon" type="image/x-icon" href="/images/common/ico.ico">
-    <link rel="stylesheet" type="text/css" href="/plugin/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/plugin/common/common.css">
     <link rel="stylesheet" type="text/css" href="/view/main/main.css">
 </head>
@@ -23,9 +23,9 @@
             <img id="companylogo" src="/images/main.header/companylogo.png" />
             <c:forEach items="${menuList}" var ="menu" varStatus="status">
                 <div class="nav">
-                    <a href="${menu.menuEntity.url}" target="bodyIframe">${menu.menuEntity.name}<br/><span>${menu.menuEntity.enName}</span></a>
+                    <a href="${menu.menuEntity.url}" target="bodyIframe" class="oneLevel"><span>${menu.menuEntity.name}</span><br/><span>${menu.menuEntity.enName}</span></a>
                     <c:forEach items="${menu.subMenuList}" var="m" varStatus="s">
-                        <a href="${m.menuEntity.url}" target="bodyIframe">${m.menuEntity.name}</a>
+                        <a href="${m.menuEntity.url}" target="bodyIframe" class="twoLevel"><span>${m.menuEntity.name}</span></a>
                     </c:forEach>
                 </div>
             </c:forEach>
@@ -39,10 +39,10 @@
         </div>
     </header>
     <div id="mid">
-        <span class="layui-breadcrumb">
-          <a href="">首页</a>
-          <a href="">我的仓库</a>
-        </span>
+        <ol class="breadcrumb">
+            <li><a href="/admin/main" target="_top">首页</a></li>
+            <li class="active">我的仓库</li>
+        </ol>
         <iframe id="bodyIframe" name="bodyIframe" src=""
                 scrolling="no" frameborder="no" border="0" marginwidth="0" marginheight="0">
         </iframe>
@@ -50,7 +50,7 @@
 </body>
 
 <script type="text/javascript" src="/plugin/jquery/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="/plugin/layui/layui.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/plugin/layer/layer.js"></script>
 <script type="text/javascript" src="/plugin/common/common.js"></script>
 <script type="text/javascript" src="/plugin/common/error.js"></script>

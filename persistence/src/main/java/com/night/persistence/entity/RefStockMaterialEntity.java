@@ -3,15 +3,15 @@ package com.night.persistence.entity;
 import javax.persistence.*;
 
 /**
- * Created by Chilious on 2017/9/10.
+ * Created by Administrator on 2017/9/11.
  */
 @Entity
-@Table(name = "inventory_machine", schema = "dudu.repertory", catalog = "")
-public class InventoryMachineEntity {
+@Table(name = "ref_stock_material", schema = "dudu.repertory", catalog = "")
+public class RefStockMaterialEntity {
     private int id;
-    private String machineNo;
+    private Integer stockId;
     private Integer materialId;
-    private Double totalNumber;
+    private Double number;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -24,13 +24,13 @@ public class InventoryMachineEntity {
     }
 
     @Basic
-    @Column(name = "machine_no", nullable = true, length = 10)
-    public String getMachineNo() {
-        return machineNo;
+    @Column(name = "stock_id", nullable = true)
+    public Integer getStockId() {
+        return stockId;
     }
 
-    public void setMachineNo(String machineNo) {
-        this.machineNo = machineNo;
+    public void setStockId(Integer stockId) {
+        this.stockId = stockId;
     }
 
     @Basic
@@ -44,13 +44,13 @@ public class InventoryMachineEntity {
     }
 
     @Basic
-    @Column(name = "total_number", nullable = true, precision = 0)
-    public Double getTotalNumber() {
-        return totalNumber;
+    @Column(name = "number", nullable = true, precision = 0)
+    public Double getNumber() {
+        return number;
     }
 
-    public void setTotalNumber(Double totalNumber) {
-        this.totalNumber = totalNumber;
+    public void setNumber(Double number) {
+        this.number = number;
     }
 
     @Override
@@ -58,12 +58,12 @@ public class InventoryMachineEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        InventoryMachineEntity that = (InventoryMachineEntity) o;
+        RefStockMaterialEntity that = (RefStockMaterialEntity) o;
 
         if (id != that.id) return false;
-        if (machineNo != null ? !machineNo.equals(that.machineNo) : that.machineNo != null) return false;
+        if (stockId != null ? !stockId.equals(that.stockId) : that.stockId != null) return false;
         if (materialId != null ? !materialId.equals(that.materialId) : that.materialId != null) return false;
-        if (totalNumber != null ? !totalNumber.equals(that.totalNumber) : that.totalNumber != null) return false;
+        if (number != null ? !number.equals(that.number) : that.number != null) return false;
 
         return true;
     }
@@ -71,9 +71,9 @@ public class InventoryMachineEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (machineNo != null ? machineNo.hashCode() : 0);
+        result = 31 * result + (stockId != null ? stockId.hashCode() : 0);
         result = 31 * result + (materialId != null ? materialId.hashCode() : 0);
-        result = 31 * result + (totalNumber != null ? totalNumber.hashCode() : 0);
+        result = 31 * result + (number != null ? number.hashCode() : 0);
         return result;
     }
 }

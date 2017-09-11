@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Chilious on 2017/9/10.
  */
 @Entity
 @Table(name = "admin", schema = "dudu.repertory", catalog = "")
@@ -15,6 +15,11 @@ public class AdminEntity {
     private String password;
     private Timestamp loginTime;
     private Integer roleId;
+    private Timestamp createTime;
+    private Integer createrId;
+    private Timestamp updateTime;
+    private Integer updaterId;
+    private Byte status;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -27,7 +32,7 @@ public class AdminEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = true, length = 100)
+    @Column(name = "name", nullable = true, length = 80)
     public String getName() {
         return name;
     }
@@ -76,6 +81,56 @@ public class AdminEntity {
         this.roleId = roleId;
     }
 
+    @Basic
+    @Column(name = "create_time", nullable = true)
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+
+    @Basic
+    @Column(name = "creater_id", nullable = true)
+    public Integer getCreaterId() {
+        return createrId;
+    }
+
+    public void setCreaterId(Integer createrId) {
+        this.createrId = createrId;
+    }
+
+    @Basic
+    @Column(name = "update_time", nullable = true)
+    public Timestamp getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Timestamp updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Basic
+    @Column(name = "updater_id", nullable = true)
+    public Integer getUpdaterId() {
+        return updaterId;
+    }
+
+    public void setUpdaterId(Integer updaterId) {
+        this.updaterId = updaterId;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = true)
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,6 +144,11 @@ public class AdminEntity {
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (loginTime != null ? !loginTime.equals(that.loginTime) : that.loginTime != null) return false;
         if (roleId != null ? !roleId.equals(that.roleId) : that.roleId != null) return false;
+        if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (createrId != null ? !createrId.equals(that.createrId) : that.createrId != null) return false;
+        if (updateTime != null ? !updateTime.equals(that.updateTime) : that.updateTime != null) return false;
+        if (updaterId != null ? !updaterId.equals(that.updaterId) : that.updaterId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
     }
@@ -101,6 +161,11 @@ public class AdminEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (loginTime != null ? loginTime.hashCode() : 0);
         result = 31 * result + (roleId != null ? roleId.hashCode() : 0);
+        result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
+        result = 31 * result + (createrId != null ? createrId.hashCode() : 0);
+        result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
+        result = 31 * result + (updaterId != null ? updaterId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

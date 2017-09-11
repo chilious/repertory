@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Administrator on 2017/9/11.
  */
 @Entity
 @Table(name = "stock", schema = "dudu.repertory", catalog = "")
@@ -13,7 +13,6 @@ public class StockEntity {
     private int id;
     private Integer storeId;
     private Byte sourceType;
-    private Integer sourceStroeId;
     private BigDecimal productSpending;
     private BigDecimal expressSpending;
     private Byte expressPayer;
@@ -22,6 +21,7 @@ public class StockEntity {
     private Timestamp time;
     private Integer procurementId;
     private Byte status;
+    private Integer sourceStoreId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -51,16 +51,6 @@ public class StockEntity {
 
     public void setSourceType(Byte sourceType) {
         this.sourceType = sourceType;
-    }
-
-    @Basic
-    @Column(name = "source_stroe_id", nullable = true)
-    public Integer getSourceStroeId() {
-        return sourceStroeId;
-    }
-
-    public void setSourceStroeId(Integer sourceStroeId) {
-        this.sourceStroeId = sourceStroeId;
     }
 
     @Basic
@@ -143,6 +133,16 @@ public class StockEntity {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "source_store_id", nullable = true)
+    public Integer getSourceStoreId() {
+        return sourceStoreId;
+    }
+
+    public void setSourceStoreId(Integer sourceStoreId) {
+        this.sourceStoreId = sourceStoreId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -153,8 +153,6 @@ public class StockEntity {
         if (id != that.id) return false;
         if (storeId != null ? !storeId.equals(that.storeId) : that.storeId != null) return false;
         if (sourceType != null ? !sourceType.equals(that.sourceType) : that.sourceType != null) return false;
-        if (sourceStroeId != null ? !sourceStroeId.equals(that.sourceStroeId) : that.sourceStroeId != null)
-            return false;
         if (productSpending != null ? !productSpending.equals(that.productSpending) : that.productSpending != null)
             return false;
         if (expressSpending != null ? !expressSpending.equals(that.expressSpending) : that.expressSpending != null)
@@ -168,6 +166,8 @@ public class StockEntity {
         if (procurementId != null ? !procurementId.equals(that.procurementId) : that.procurementId != null)
             return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (sourceStoreId != null ? !sourceStoreId.equals(that.sourceStoreId) : that.sourceStoreId != null)
+            return false;
 
         return true;
     }
@@ -177,7 +177,6 @@ public class StockEntity {
         int result = id;
         result = 31 * result + (storeId != null ? storeId.hashCode() : 0);
         result = 31 * result + (sourceType != null ? sourceType.hashCode() : 0);
-        result = 31 * result + (sourceStroeId != null ? sourceStroeId.hashCode() : 0);
         result = 31 * result + (productSpending != null ? productSpending.hashCode() : 0);
         result = 31 * result + (expressSpending != null ? expressSpending.hashCode() : 0);
         result = 31 * result + (expressPayer != null ? expressPayer.hashCode() : 0);
@@ -186,6 +185,7 @@ public class StockEntity {
         result = 31 * result + (time != null ? time.hashCode() : 0);
         result = 31 * result + (procurementId != null ? procurementId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (sourceStoreId != null ? sourceStoreId.hashCode() : 0);
         return result;
     }
 }

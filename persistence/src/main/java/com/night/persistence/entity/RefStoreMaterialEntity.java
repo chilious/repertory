@@ -3,11 +3,11 @@ package com.night.persistence.entity;
 import javax.persistence.*;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Administrator on 2017/9/11.
  */
 @Entity
-@Table(name = "ref_sotre_material", schema = "dudu.repertory", catalog = "")
-public class RefSotreMaterialEntity {
+@Table(name = "ref_store_material", schema = "dudu.repertory", catalog = "")
+public class RefStoreMaterialEntity {
     private int id;
     private Integer storeId;
     private Integer materialId;
@@ -58,7 +58,7 @@ public class RefSotreMaterialEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RefSotreMaterialEntity that = (RefSotreMaterialEntity) o;
+        RefStoreMaterialEntity that = (RefStoreMaterialEntity) o;
 
         if (id != that.id) return false;
         if (storeId != null ? !storeId.equals(that.storeId) : that.storeId != null) return false;

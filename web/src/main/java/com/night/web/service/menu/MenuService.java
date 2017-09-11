@@ -25,29 +25,24 @@ public class MenuService extends BaseService implements IMenuService{
     public List<Menu> getMenuList(Integer roleid) throws Exception {
         List<Menu> menuList = new ArrayList<Menu>();
         List<MenuEntity> list = dao.findMenuListByRoleID(roleid);
+
         for(MenuEntity temp : list){
-            Menu menu = new Menu();
-            menu.setMenuEntity(temp);
-            menuList.add(menu);
+            if(temp.getNo().length() == 2){
+                Menu menu = new Menu();
+                menu.setMenuEntity(temp);
+                List<Menu> subList = new ArrayList<Menu>();
+                for(MenuEntity sub : list){
+                    if(sub.getNo().startsWith(temp.getNo()) && sub.getNo().length() == 4){
+                        Menu subm = new Menu();
+                        subm.setMenuEntity(sub);
+                        subList.add(subm);
+                    }
+                }
+                menu.setSubMenuList(subList);
+                menuList.add(menu);
+            }
         }
 
-        List<Menu> returnList = new ArrayList<Menu>();
-        for(Menu m : menuList){
-            if(m.getMenuEntity().getNo().length() == 2){
-                returnList.add(m);
-            }
-        }
-        for(Menu M : returnList){
-            List<Menu> subList = new ArrayList<Menu>();
-            String NO = M.getMenuEntity().getNo();
-            for(Menu m : menuList){
-                String no = m.getMenuEntity().getNo();
-                if(no.length() == 4 && no.startsWith(NO)){
-                    subList.add(m);
-                }
-            }
-            M.setSubMenuList(subList);
-        }
-        return returnList;
+        return menuList;
     }
 }

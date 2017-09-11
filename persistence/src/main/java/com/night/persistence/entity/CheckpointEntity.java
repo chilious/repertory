@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Administrator on 2017/9/11.
  */
 @Entity
 @Table(name = "checkpoint", schema = "dudu.repertory", catalog = "")
 public class CheckpointEntity {
     private int id;
     private Timestamp time;
-    private String storeNo;
+    private Integer adminId;
+    private Integer storeId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -34,13 +35,23 @@ public class CheckpointEntity {
     }
 
     @Basic
-    @Column(name = "store_no", nullable = true, length = 51)
-    public String getStoreNo() {
-        return storeNo;
+    @Column(name = "admin_id", nullable = true)
+    public Integer getAdminId() {
+        return adminId;
     }
 
-    public void setStoreNo(String storeNo) {
-        this.storeNo = storeNo;
+    public void setAdminId(Integer adminId) {
+        this.adminId = adminId;
+    }
+
+    @Basic
+    @Column(name = "store_id", nullable = true)
+    public Integer getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
     }
 
     @Override
@@ -52,7 +63,8 @@ public class CheckpointEntity {
 
         if (id != that.id) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
-        if (storeNo != null ? !storeNo.equals(that.storeNo) : that.storeNo != null) return false;
+        if (adminId != null ? !adminId.equals(that.adminId) : that.adminId != null) return false;
+        if (storeId != null ? !storeId.equals(that.storeId) : that.storeId != null) return false;
 
         return true;
     }
@@ -61,7 +73,8 @@ public class CheckpointEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (time != null ? time.hashCode() : 0);
-        result = 31 * result + (storeNo != null ? storeNo.hashCode() : 0);
+        result = 31 * result + (adminId != null ? adminId.hashCode() : 0);
+        result = 31 * result + (storeId != null ? storeId.hashCode() : 0);
         return result;
     }
 }

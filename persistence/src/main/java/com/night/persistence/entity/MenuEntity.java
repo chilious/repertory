@@ -3,7 +3,7 @@ package com.night.persistence.entity;
 import javax.persistence.*;
 
 /**
- * Created by Administrator on 2017/8/30.
+ * Created by Chilious on 2017/9/10.
  */
 @Entity
 @Table(name = "menu", schema = "dudu.repertory", catalog = "")

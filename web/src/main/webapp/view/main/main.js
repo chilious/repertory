@@ -29,6 +29,34 @@ function listenAll(){
     $('.nav a').mouseout(function(){
         $(this).css('color','#C9C9C9');
     });
+    /**
+     * submenu点击事件
+     */
+    $('.oneLevel').click(function(){
+        var li1 = '<li><a href="/admin/main" target="_top">首页</a></li>';
+        var li2 = '<li class="active">'+$(this).find('span:first').text()+'</li>'
+        $('.breadcrumb').html(
+            li1 + li2
+        );
+    });
+    $('.twoLevel').click(function(){
+        var k = $(this).parent().find('a:first');
+        var url = k.attr('href');
+        var name = k.find('span:first').text();
+        var li1 = '<li><a href="/admin/main" target="_top">首页</a></li>';
+        var li2 = '<li><a href="'+url+'">'+name+'</a></li>';
+        var li3 = '<li class="active">'+$(this).find('span:first').text()+'</li>';
+        $('.breadcrumb').html(
+            li1 + li2 + li3
+        );
+    });
+    /**
+     * 阻止网页元素被选中
+     * @returns {boolean}
+     */
+    document.body.onselectstart = function(){
+        return false;
+    };
 }
 /**
  * 初始化**********************************************

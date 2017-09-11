@@ -1,0 +1,13 @@
+@charset "UTF-8";
+div{
+    padding:3px 10px;
+}
+.subPanel{
+    margin:10px 2rem;
+}
+.subPanel span{
+    margin-right:1rem;
+}
+.subPanel p{
+    margin-bottom:5px;
+}

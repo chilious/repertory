@@ -39,6 +39,9 @@ public class AdminService extends BaseService implements IAdminService{
         if(!password.equals(decryptedPassword)){
             throw new ClientException("password_error");
         }
+        if(adminEntity.getStatus() == 1){
+            throw new ClientException("acount_forbidden");
+        }
         admin.setAdminEntity(adminEntity);
         admin.setLoginTime(new SimpleDateFormat("yyyy.MM.dd HH:mm").format(adminEntity.getLoginTime()));
         adminEntity.setLoginTime(new Timestamp(new Date().getTime()));
